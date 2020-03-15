@@ -427,3 +427,7 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+.swal2-icon.swal2-success [class^=swal2-success-line]{
+  background-color: #222 !important; 
+}

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './App.css';
 import * as serviceWorker from './serviceWorker';
 import {createUseStyles} from "react-jss"
+import Swal from 'sweetalert2'
 
 import Header from "./components/header"
 import Footer from "./components/footer"
@@ -37,9 +38,29 @@ function App() {
       }
     }
 
+    function alertMsg(){
+      Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        onOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      }).fire({
+        icon: 'success',
+        title: 'Text copied successfully'
+      })
+    }
+
     function copyText(){
+      //Copy Text
       codeAreaRef.current.select()
       document.execCommand("copy")
+
+      alertMsg()
     }
 
     //Variables
