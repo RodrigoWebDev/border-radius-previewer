@@ -1,8 +1,23 @@
 import React from "react"
+import {createUseStyles} from "react-jss"
 
-export default (props) => (
-    <div className="code">
-        <textarea ref={props.refProp} value={props.codeText} readOnly className="code-field"/>
-        <button onClick={props.copyText} className="button">Copy</button>
-    </div>
-)
+//styles
+const css = createUseStyles({
+    textarea: {
+        height: "81px !important",
+        overflow: "auto"
+    },
+    button: {
+        marginBottom: "20px"
+    }
+})
+
+export default (props) => {
+    const styles = css()
+    return(
+        <div className="code">
+        <textarea ref={props.refProp} value={props.codeText} readOnly className={styles.textarea}/>
+            <button onClick={props.copyText} className={styles.button}>Copy Code</button>
+        </div>
+    )
+}

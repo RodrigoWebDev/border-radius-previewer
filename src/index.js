@@ -2,12 +2,25 @@ import React, {useState, useRef} from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
 import * as serviceWorker from './serviceWorker';
+import {createUseStyles} from "react-jss"
 
 import Header from "./components/header"
 import Footer from "./components/footer"
 import Box from "./components/box"
-import Controller from "./components/controller"
 import Code from "./components/code"
+import Controller from "./components/controller"
+
+
+//Styles
+const css = createUseStyles({
+  container: {
+    margin: "0 auto",
+    maxWidth: "600px"
+  },
+  boxContainer : {
+    position: "relative",
+  }
+})
 
 function App() {
 
@@ -31,18 +44,22 @@ function App() {
 
     //Variables
     const borderStyle = `${tl}px ${tr}px ${br}px ${bl}px`
-    const codeText = `border-radius: ${borderStyle};`
+    const codeText = `-webkit-border-radius: ${borderStyle}; 
+-moz-border-radius: ${borderStyle}; 
+border-radius: ${borderStyle};
+    `
     const codeAreaRef = useRef(null)
+    const styles = css()
 
     return (
-      <div className="App">
+      <div className={styles.container}>
         <Header/>
-        <Box border={borderStyle}/>
-        <div className="row">
-          <Controller value={tl} handleChange={handleChange("setTl")}/>
-          <Controller value={tr} handleChange={handleChange("setTr")}/>
-          <Controller value={bl} handleChange={handleChange("setBl")}/>
-          <Controller value={br} handleChange={handleChange("setBr")}/>
+        <div className={styles.boxContainer}>
+          <Controller top="0px" left="0px" right="unset" bottom="unset" value={tl} handleChange={handleChange("setTl")}/>
+          <Controller top="0px" left="unset" right="0px" bottom="unset" value={tr} handleChange={handleChange("setTr")}/>
+          <Controller top="unset" left="0px" right="unset" bottom="0px" value={bl} handleChange={handleChange("setBl")}/>
+          <Controller top="unset" left="unset" right="0px" bottom="0px" value={br} handleChange={handleChange("setBr")}/>
+          <Box border={borderStyle} value={tl}/>
         </div>
         <Code refProp={codeAreaRef} codeText={codeText} copyText={copyText}/>
         <Footer/>
