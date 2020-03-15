@@ -1,0 +1,27 @@
+:root{
+    --swal-color: #222;
+    --swal-text-color: #202020;
+}
+
+.swal2-icon.swal2-success [class^="swal2-success-line"] {
+  background-color: var(--swal-color) !important;
+}
+
+.swal2-icon.swal2-success .swal2-success-ring {
+  border-color: var(--swal-color) !important;
+  opacity: .1;
+}
+
+/*.swal2-icon.swal2-success{
+    background-color: var(--swal-color) !important;
+    color: var(--swal-color) !important;
+}*/
+
+.swal2-popup.swal2-toast .swal2-success{
+    border-color: var(--swal-color) !important;
+}
+
+.swal2-popup.swal2-toast .swal2-title{
+    font-size: 16px !important;
+    color: var(--swal-text-color) !important;
+}

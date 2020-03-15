@@ -4,6 +4,7 @@ import './App.css';
 import * as serviceWorker from './serviceWorker';
 import {createUseStyles} from "react-jss"
 import Swal from 'sweetalert2'
+import './swal-theme.css'
 
 import Header from "./components/header"
 import Footer from "./components/footer"
@@ -53,6 +54,8 @@ function App() {
         icon: 'success',
         title: 'Text copied successfully'
       })
+
+      //debugger
     }
 
     function copyText(){
