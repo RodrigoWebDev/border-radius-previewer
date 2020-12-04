@@ -1,95 +1,133 @@
-import React, {useState, useRef} from 'react';
-import ReactDOM from 'react-dom';
-import './App.css';
-import * as serviceWorker from './serviceWorker';
-import {createUseStyles} from "react-jss"
-import Swal from 'sweetalert2'
-import './swal-theme.css'
+import React, { useState, useRef } from "react";
+import ReactDOM from "react-dom";
+import "./App.css";
+import * as serviceWorker from "./serviceWorker";
+import { createUseStyles } from "react-jss";
+import Swal from "sweetalert2";
+import "./swal-theme.css";
 
-import Header from "./components/header"
-import Footer from "./components/footer"
-import Box from "./components/box"
-import Code from "./components/code"
-import Controller from "./components/controller"
-
+import Header from "./components/header";
+import Footer from "./components/footer";
+import Box from "./components/box";
+import Code from "./components/code";
+import Controller from "./components/controller";
 
 //Styles
 const css = createUseStyles({
-  container: {
-    margin: "0 auto",
-    maxWidth: "600px"
-  },
-  boxContainer : {
+  boxContainer: {
     position: "relative",
-  }
-})
+    maxWidth: "300px",
+    margin: "0 auto",
+    border: "3px dashed var(--text-color)",
+    "z-index": "3",
+  },
+});
 
 function App() {
+  //State
+  const [top, setTop] = useState(50);
+  const [right, setRight] = useState(25);
+  const [bottom, setBottom] = useState(50);
+  const [left, setLeft] = useState(25);
 
-    //State
-    const [tl, setTl] = useState(0)
-    const [tr, setTr] = useState(0)
-    const [bl, setBl] = useState(0)
-    const [br, setBr] = useState(0)
-
-    //Functions
-    function handleChange(val){
-      return function(e){
-        eval(`${val}(e.target.value)`)
-      }
-    }
-
-    function alertMsg(){
-      Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        onOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer)
-          toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
-      }).fire({
-        icon: 'success',
-        title: 'Text copied successfully'
-      })
-
-      //debugger
-    }
-
-    function copyText(){
-      //Copy Text
-      codeAreaRef.current.select()
-      document.execCommand("copy")
-
-      alertMsg()
-    }
-
-    //Variables
-    const borderStyle = `${tl}px ${tr}px ${br}px ${bl}px`
-    const codeText = `-webkit-border-radius: ${borderStyle}; 
--moz-border-radius: ${borderStyle}; 
-border-radius: ${borderStyle};
-    `
-    const codeAreaRef = useRef(null)
-    const styles = css()
-
-    return (
-      <div className={styles.container}>
-        <Header/>
-        <div className={styles.boxContainer}>
-          <Controller top="0px" left="0px" right="unset" bottom="unset" value={tl} handleChange={handleChange("setTl")}/>
-          <Controller top="0px" left="unset" right="0px" bottom="unset" value={tr} handleChange={handleChange("setTr")}/>
-          <Controller top="unset" left="0px" right="unset" bottom="0px" value={bl} handleChange={handleChange("setBl")}/>
-          <Controller top="unset" left="unset" right="0px" bottom="0px" value={br} handleChange={handleChange("setBr")}/>
-          <Box border={borderStyle} value={tl}/>
-        </div>
-        <Code refProp={codeAreaRef} codeText={codeText} copyText={copyText}/>
-        <Footer/>
-      </div>
-    );
+  //Functions
+  function handleChange(val) {
+    return function (e) {
+      eval(`${val}(e.target.value)`);
+    };
   }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+  function alertMsg() {
+    Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      onOpen: (toast) => {
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    }).fire({
+      icon: "success",
+      title: "Text copied successfully",
+    });
+
+    //debugger
+  }
+
+  function copyText() {
+    //Copy Text
+    codeAreaRef.current.select();
+    document.execCommand("copy");
+
+    alertMsg();
+  }
+
+  //Variables
+  const borderStyle = `${top}% ${right}% ${bottom}% ${left}%`;
+  const codeText = `-webkit-border-radius: ${borderStyle}; 
+-moz-border-radius: ${borderStyle}; 
+border-radius: ${borderStyle};
+    `;
+  const codeAreaRef = useRef(null);
+  const styles = css();
+  const boxWidth = "300px";
+
+  return (
+    <>
+      <Header />
+      <div className={styles.boxContainer}>
+        <Controller
+          top="-5px"
+          left="0px"
+          right="unset"
+          bottom="unset"
+          width={boxWidth}
+          value={top}
+          handleChange={handleChange("setTop")}
+          name="top"
+        />
+        <Controller
+          top="48%"
+          left="unset"
+          right="-153px"
+          bottom="unset"
+          width={boxWidth}
+          rotate="rotate(90deg)"
+          value={right}
+          handleChange={handleChange("setRight")}
+          name="right"
+        />
+        <Controller
+          top="unset"
+          left="0px"
+          right="unset"
+          bottom="-5px"
+          width={boxWidth}
+          rotate="rotate(180deg)"
+          value={bottom}
+          handleChange={handleChange("setBottom")}
+          name="bottom"
+        />
+        <Controller
+          top="48%"
+          left="-153px"
+          right="unset"
+          bottom="unset"
+          width={boxWidth}
+          rotate="rotate(-90deg)"
+          value={left}
+          handleChange={handleChange("setLeft")}
+          name="left"
+        />
+        <Box border={borderStyle} value={top} />
+      </div>
+      <Code refProp={codeAreaRef} codeText={codeText} copyText={copyText} />
+      <Footer />
+    </>
+  );
+}
+
+ReactDOM.render(<App />, document.getElementById("root"));
 serviceWorker.unregister();
