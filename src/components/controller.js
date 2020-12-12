@@ -3,15 +3,16 @@ import { createUseStyles } from "react-jss";
 
 export default (props) => {
   const rotate = props.rotate ? props.rotate : "none";
+  
   //Styles
   const css = createUseStyles({
     input: {
       position: "absolute",
-      top: (props) => props.top,
-      bottom: (props) => props.bottom,
-      left: (props) => props.left,
-      right: (props) => props.right,
-      width: `${props.width} !important`,
+      top: (props) => props.position.top,
+      bottom: (props) => props.position.bottom,
+      left: (props) => props.position.left,
+      right: (props) => props.position.right,
+      width: `300px !important`,
       display: "block !important",
       margin: "0px !important",
       textAlign: "center !important",
@@ -20,6 +21,11 @@ export default (props) => {
       "-o-transform": rotate,
       "-ms-transform": rotate,
       transform: rotate,
+    },
+    "@media (max-width: 450px)": {
+      input: {
+        width: "200px !important",
+      },
     },
   });
 

@@ -6,14 +6,14 @@ const css = createUseStyles({
     height: "300px",
     width: "300px",
     maxWidth: "100%",
-    background: "var(--gradient-color)",
+    background: "var(--primary-color)",
     borderRadius: (props) => props.border,
     margin: "0 auto",
   },
   "@media (max-width: 450px)": {
     box: {
-      width: "200px",
-      height: "200px",
+      width: "194px",
+      height: "194px",
     },
   },
 });

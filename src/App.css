@@ -1,11 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap");
 
 :root {
-  --swal-color: #222;
-  --swal-text-color: #202020;
+  --swal-color: #833ab4;
+  --swal-text-color: #833ab4;
   --input-range-tranck-color: transparent;
   --text-color: rgba(255, 255, 255, 0.8);
-  --gradient-color: linear-gradient(45deg, #833ab4, #fd1d1d);
+  --primary-color: #833ab4; 
+  --primary-color-hover: #622b86;
+  
 }
 
 * {
@@ -92,11 +94,11 @@ h6 {
   }
 }
 a {
-  color: #104cfb;
+  color: var(--primary-color);
   transition: all 0.1s ease;
 }
 a:hover {
-  color: #222;
+  color: var(--primary-color-hover);
 }
 [type="submit"],
 button {
@@ -174,7 +176,7 @@ input[type="text"]:focus,
 select:focus textarea:focus,
 textarea[type="text"]:focus {
   outline: 0;
-  border: 1px solid #104cfb;
+  border: 1px solid var(--primary-color);
 }
 input[type="email"],
 input[type="file"],
@@ -510,45 +512,5 @@ how to remove the virtical space around the range input in IE*/
   input[type="range"] {
     margin: 0;
     /*Edge starts the margin from the thumb, not the track as other browsers do*/
-  }
-}
-
-body::before,
-body::after {
-  content: "";
-  width: 70vmax;
-  height: 70vmax;
-  position: absolute;
-  background: rgba(255, 255, 255, 0.07);
-  left: -20vmin;
-  top: -20vmin;
-  animation: morph 15s linear infinite alternate, spin 20s linear infinite;
-  z-index: 1;
-  will-change: border-radius, transform;
-  transform-origin: 55% 55%;
-  pointer-events: none;
-  border-radius: 50%;
-}
-
-body::after {
-  width: 70vmin;
-  height: 70vmin;
-  left: auto;
-  right: -10vmin;
-  top: auto;
-  bottom: 0;
-  animation: morph 10s linear infinite alternate,
-    spin 26s linear infinite reverse;
-  transform-origin: 20% 20%;
-}
-
-@keyframes morph {
-  from {
-    top: 0px;
-    left: 0;
-  }
-  to {
-    top: 500px;
-    left: 300px;
   }
 }
