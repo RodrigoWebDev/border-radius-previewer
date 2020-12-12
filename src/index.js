@@ -179,8 +179,8 @@ function App() {
           <Box border={borderStyle} value={top} />
         </div>
         <Code refProp={codeAreaRef} codeText={codeText} copyText={copyText} />
-        <Footer />
       </Container>
+      <Footer />
     </>
   );
 }

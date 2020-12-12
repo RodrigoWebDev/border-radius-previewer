@@ -4,13 +4,11 @@ import { createUseStyles } from "react-jss"
 const css = createUseStyles({
     footer: {
         textAlign: "center",
-        position: "fixed",
+        position: "absolute",
         bottom: 0,
         width: "100%",
         background: "#2b2b2b",
         left: 0,
-        display: "flex",
-        justifyContent: "center",
         padding: "10px 0",
     },
     link:{

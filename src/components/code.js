@@ -10,13 +10,15 @@ const css = createUseStyles({
     borderRadius: "2px 0 0 2px",
     flexGrow: 1,
     padding: "0 16px",
-    fontSize: "20px"
+    fontSize: "20px",
   },
   button: {
     background: "var(--primary-color)",
     height: "50px !important",
     margin: 0,
     cursor: "pointer",
+    textTransform: "uppercase",
+    fontWeight: 700,
     "&:hover": {
       background: "var(--primary-color-hover)"
     }
@@ -26,12 +28,22 @@ const css = createUseStyles({
     margin: "20px auto",
     maxWidth: "600px",
     zIndex: 3,
-    position: "relative"
+    position: "relative",
+    //marginBottom: "100px",
   },
   "@media (max-width: 548px)": {
+    code: {
+      flexDirection: "column"
+    },
     input: {
-      fontSize: "12px"
-    } 
+      marginBottom: "10px",
+      fontSize: "16px"
+    }
+  },
+  "@media (max-width: 332px)": {
+    input: {
+      fontSize: "10px"
+    }
   }
 });
 
@@ -46,7 +58,7 @@ export default (props) => {
         className={styles.input}
       />
       <button onClick={props.copyText} className={styles.button}>
-        Copy Code
+        Copy
       </button>
     </div>
   );

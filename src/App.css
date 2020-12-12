@@ -38,8 +38,12 @@ body {
   font-size: 1.5em;
   background: #002;
   color: var(--text-color);
-  padding: 0 16px;
   font-family: "M PLUS Rounded 1c", sans-serif;
+  margin: 0;
+}
+
+#root{
+  padding: 0 16px;
 }
 
 h1,
