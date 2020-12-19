@@ -1,5 +1,5 @@
 import React from "react"
-import {createUseStyles} from "react-jss"
+import { createUseStyles } from "react-jss"
 
 const css = createUseStyles({
     title: {
@@ -7,11 +7,14 @@ const css = createUseStyles({
         marginBottom: "50px",
     }
 })
-export default () => {
+
+const Header = () => {
     const styles = css()
-    return(
+    return (
         <header className="header">
             <h1 className={styles.title}>Border Radius Previewer</h1>
         </header>
     )
 }
+
+export default Header;

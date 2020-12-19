@@ -1,0 +1,14 @@
+.box {
+  height: 300px;
+  width: 300px;
+  max-width: 100%;
+  background: var(--primary-color);
+  margin: "0 auto";
+}
+
+@media (max-width: 450px) {
+  .box {
+    width: 194px;
+    height: 194px;
+  }
+}

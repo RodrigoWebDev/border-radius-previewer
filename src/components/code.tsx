@@ -1,6 +1,12 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 
+type codeProps = {
+  refProp: any,
+  codeText: any,
+  copyText: any,
+}
+
 //styles
 const css = createUseStyles({
   input: {
@@ -47,19 +53,21 @@ const css = createUseStyles({
   }
 });
 
-export default (props) => {
+const Code = ({ refProp, codeText, copyText }: codeProps) => {
   const styles = css();
   return (
     <div className={styles.code}>
       <input
-        ref={props.refProp}
-        value={props.codeText}
+        ref={refProp}
+        value={codeText}
         readOnly
         className={styles.input}
       />
-      <button onClick={props.copyText} className={styles.button}>
+      <button onClick={copyText} className={styles.button}>
         Copy
       </button>
     </div>
   );
 };
+
+export default Code;

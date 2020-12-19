@@ -11,19 +11,21 @@ const css = createUseStyles({
         left: 0,
         padding: "10px 0",
     },
-    link:{
+    link: {
         marginLeft: "5px"
     }
 })
 
-export default () => {
+const Footer = () => {
     const styles = css()
-    return(
+    return (
         <footer className={styles.footer}>
-            Created by 
-            <a target="_blank" className={styles.link} href="https://rqueiroz.netlify.com/"> Rodrigo Queiroz</a>. 
-            Source code 
+            Created by
+            <a target="_blank" className={styles.link} href="https://rqueiroz.netlify.com/"> Rodrigo Queiroz</a>.
+            Source code
             <a target="_blank" className={styles.link} href="https://github.com/RodrigoWebDev/border-radius-previewer">here</a>
         </footer>
     )
 }
+
+export default Footer;
