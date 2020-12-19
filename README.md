@@ -11,9 +11,8 @@ See a live demo [here](https://border-radius-previwer.netlify.com/)
 * JSS(Js in CSS)
 * HTML5
 * CSS3
-* Javascript
+* TypeScript
 * React
-* Gatsby
 * Sweet Alert 2
 
 ## How to install
