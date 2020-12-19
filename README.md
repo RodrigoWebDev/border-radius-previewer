@@ -1,4 +1,3 @@
-![Border Radius Previewer](https://rqueiroz.netlify.com/static/border-radius-c1f000bb8a904e4800a066bfca55f3ca.jpg)
 #  Border Radius Previewer Web App
 
 That was a project idea that I took from the repository [App Ideas Collection](https://github.com/florinpop17/app-ideas)
