@@ -3,7 +3,7 @@
 That was a project idea that I took from the repository [App Ideas Collection](https://github.com/florinpop17/app-ideas)
 
 ## Live demo
-See a live demo [here](https://border-radius-previwer.netlify.com/)
+See a live demo [here](https://border-radius-previewer.surge.sh/)
 
 ## Build With
 
